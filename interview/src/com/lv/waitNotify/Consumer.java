@@ -18,7 +18,7 @@ public class Consumer<T> {
                 tasks.wait();
             }
             T ret = tasks.poll();
-            System.out.println("消费者 已消费:" + Thread.currentThread().getName());
+            System.out.println("消费者    已消费:" + Thread.currentThread().getName());
             // TODO 调用Qytify或者notifyAll的时候，必须已经获得对象的monitor，也就是在对象电
             tasks.notifyAll();
             return ret;

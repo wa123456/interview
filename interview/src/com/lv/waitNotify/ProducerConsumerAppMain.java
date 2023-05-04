@@ -13,8 +13,8 @@ public class ProducerConsumerAppMain {
         Queue<String> QueueUrls = new LinkedList<>();
 
         Consumer<String> consumer = new Consumer<>(QueueUrls);
-        Producer<String> producer = new Producer<>(QueueUrls, 1);
-        for (int i = 0; i < 3; i++) {
+        Producer<String> producer = new Producer<>(QueueUrls, 2);
+        for (int i = 0; i < 30; i++) {
             Thread consumerThread = new Thread(() -> {
                 //while (true) {
                     try {
@@ -27,7 +27,7 @@ public class ProducerConsumerAppMain {
             }, "Ïû·ÑÕß-" + i);
             consumerThread.start();
         }
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 30; i++) {
             Thread producerThread = new Thread(() -> {
 
                 //while (true) {
