@@ -16,8 +16,8 @@ public class MyThreadPoolDemo {
         // Executor Executors(辅助工具类)
         // 一池5个处理线程（用池化技术，一定要记得关闭）
 
-        //Executors.newScheduledThreadPool(int corePoolSize)：
-
+        //Executors.newCachedThreadPool()
+        //Executors.newScheduledThreadPool()
         //todo execute和submit 怎么玩？
         ExecutorService threadPool = Executors.newFixedThreadPool(5);
         // 模拟10个用户来办理业务，每个用户就是一个来自外部请求线程
