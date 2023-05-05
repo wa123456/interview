@@ -5,37 +5,17 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @description: SynchronousQueue没有容量，与其他BlockingQueue不同，
+ * SynchronousQueue是一个不存储的BlockingQueue，每一个put操作必须等待一个take操作，否者不能继续添加元素
+ * @author : lv
+ * @date:
+ */
 public class QueueTest {
     public static void main(String[] args) {
-        /*
+
         // 阻塞队列，需要填入默认值
-        BlockingQueue<String> blockingQueue = new ArrayBlockingQueue<>(3);
-
-        try {
-            blockingQueue.put("a");
-            blockingQueue.put("b");
-            blockingQueue.put("c");
-            System.out.println("================");
-
-            blockingQueue.take();
-            blockingQueue.take();
-            blockingQueue.take();
-            //blockingQueue.take();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-
-        BlockingQueue<String> blockingQueue1 = new ArrayBlockingQueue<>(3);
-        try {
-            System.out.println(blockingQueue1.offer("a", 2L, TimeUnit.SECONDS));
-            System.out.println(blockingQueue1.offer("b", 2L, TimeUnit.SECONDS));
-            System.out.println(blockingQueue1.offer("c", 2L, TimeUnit.SECONDS));
-            System.out.println(blockingQueue1.offer("d", 10L, TimeUnit.SECONDS));
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        */
+        //BlockingQueue<String> blockingQueue = new ArrayBlockingQueue<>(3);
 
         BlockingQueue<String> blockingQueue = new SynchronousQueue<>();
 
@@ -63,30 +43,29 @@ public class QueueTest {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                blockingQueue.take();
-                System.out.println(Thread.currentThread().getName() + "\t take A ");
+                String takeStr = blockingQueue.take();
+                System.out.println(Thread.currentThread().getName() + "\t take  " + takeStr);
 
                 try {
                     TimeUnit.SECONDS.sleep(5);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                blockingQueue.take();
-                System.out.println(Thread.currentThread().getName() + "\t take B ");
+
+                System.out.println(Thread.currentThread().getName() + "\t take  " + blockingQueue.take());
 
                 try {
                     TimeUnit.SECONDS.sleep(5);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                blockingQueue.take();
-                System.out.println(Thread.currentThread().getName() + "\t take C ");
+
+                System.out.println(Thread.currentThread().getName() + "\t take  " + blockingQueue.take());
 
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }, "t2").start();
-
 
     }
 }
