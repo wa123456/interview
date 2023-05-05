@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 这个生产者、消费者的例子非常好；
+ * 通过synchronized (Queue) 的方式可以实现过个生产者，消费一个队列，且队列的大小可调
  */
 public class ProducerConsumerAppMain {
     public static final Object LQCKER = new Object();
