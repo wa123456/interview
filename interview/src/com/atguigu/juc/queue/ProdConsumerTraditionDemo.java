@@ -1,16 +1,11 @@
 package com.atguigu.juc.queue;
 /**
- * 生产者消费者 传统版
- * 题目：一个初始值为 0 的变量，两个线程对其交替操作，一个加 1，一个减 1，来 5
- * 轮
- *
- * @author: 陌溪
- * @create: 2020-03-16-21:38
- * <p>
- * 线程 操作 资源类
- * 判断 干活 通知
- * 防止虚假唤醒机制
+ * @description: 生产者消费者 传统版
+ * 题目：一个初始值为0的变量，两个线程对其交替操作，一个加1，一个减1，来5轮
+ * @author : lv
+ * @date:
  */
+
 /**
  * 线程 操作 资源类
  * 判断 干活 通知
@@ -21,9 +16,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-/**
- * 资源类
- */
+//资源类
 class ShareData {
     private int number = 0;
     private Lock lock = new ReentrantLock();
