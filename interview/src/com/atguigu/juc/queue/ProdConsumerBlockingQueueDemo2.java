@@ -7,8 +7,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 生产者消费者 阻塞队列版
- * 使用：volatile、CAS、atomicInteger、BlockQueue、线程交互、原子引用
- * 113
+ *
+ * prod	 插入队列:1成功
+ * consumer	 消费队列:1成功
+ * prod	 插入队列:2成功
+ * consumer	 消费队列:2成功
  *
  * @author: 陌溪
  * @create: 2020-03-17-11:13
@@ -29,11 +32,8 @@ class MyResource2 {
         System.out.println(blockingQueue.getClass().getName());
     }
 
-    /**
-     * 生产
-     *
-     * @throws Exception
-     */
+    // 生产
+
     public void myProd() throws Exception {
         String data = null;
         boolean retValue;
@@ -55,11 +55,8 @@ class MyResource2 {
         System.out.println(Thread.currentThread().getName() + "\t 停止 生产，表示 FLAG=false，生产介绍");
     }
 
-    /**
-     * 消费
-     *
-     * @throws Exception
-     */
+    //消费
+
     public void myConsumer() throws Exception {
         String retValue;
         // 多线程环境的判断，一定要使用 while 进行，防止出现虚假唤醒
