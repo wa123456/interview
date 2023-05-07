@@ -13,24 +13,18 @@ package com.lv.reenterLock;
  */
 class Phone {
 
-    /**
-     * 发送短信
-     * @throws Exception
-     */
+    //发送短信
+
     public synchronized void sendSMS() throws Exception{
         System.out.println(Thread.currentThread().getName() + "\t invoked sendSMS()");
         Thread.sleep(3000);
-
-
 
         // 在同步方法中，调用另外一个同步方法
         sendEmail();
     }
 
-    /**
-     * 发邮件
-     * @throws Exception
-     */
+    //发邮件
+
     public synchronized void sendEmail() throws Exception{
         //todo 为什么有个12  13呢？
         System.out.println(Thread.currentThread().getName() + "\t invoked sendEmail()");
