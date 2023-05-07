@@ -44,7 +44,6 @@ class MyResource3 {
         if (retValue) {
             System.out.println(Thread.currentThread().getName() + "\t 插入队列:" + data + "成功");
         }
-
     }
 
     //消费
@@ -58,7 +57,6 @@ class MyResource3 {
             System.out.println(Thread.currentThread().getName() + "\t 消费队列:" + retValue + "成功");
         }
     }
-
 }
 
 public class ProdConsumerBlockingQueueDemo3 {
