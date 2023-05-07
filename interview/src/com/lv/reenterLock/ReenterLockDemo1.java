@@ -29,7 +29,7 @@ class PhoneTest implements Runnable{
             e.printStackTrace();
         } finally {
             lock.unlock();
-            lock.unlock();
+            //lock.unlock();
         }
     }
 
