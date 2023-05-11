@@ -1,4 +1,4 @@
-package com.lv.juc.future;
+package com.lv.juc.future.api;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -13,6 +13,7 @@ public class CompletableFutureAPIDemo {
         });
 
         try {
+            //TimeUnit.SECONDS.sleep(3);//等待需要1秒
             TimeUnit.SECONDS.sleep(1);//等待需要1秒
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -20,4 +21,6 @@ public class CompletableFutureAPIDemo {
        // System.out.println(uCompletableFuture.getNow("xxx"));//执2-等1 返回xxx
         System.out.println(uCompletableFuture.complete("completeValue")+"\t"+uCompletableFuture.get());//执2-等1 返回true+备胎值completeValue
     }
+    //false	abc
+    //true	completeValue
 }
