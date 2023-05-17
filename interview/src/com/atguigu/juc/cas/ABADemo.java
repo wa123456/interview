@@ -5,9 +5,9 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicStampedReference;
 
 /**
- * ABA问题的解决，AtomicStampedReference
- * @author: 陌溪
- * @create: 2020-03-12-15:34
+ * ABA问题的解决，AtomicStampedReference，
+ * 四个参数，这个事例中注意sleep的时间，很好的给出了演示的效果
+
  */
 public class ABADemo {
 
@@ -21,6 +21,7 @@ public class ABADemo {
 
     public static void main(String[] args) {
 
+        /*
         System.out.println("============以下是ABA问题的产生==========");
 
         new Thread(() -> {
@@ -42,7 +43,7 @@ public class ABADemo {
         }, "t2").start();
 
         System.out.println("============以下是ABA问题的解决==========");
-
+        */
         new Thread(() -> {
 
             // 获取版本号
@@ -57,6 +58,7 @@ public class ABADemo {
             }
 
             // 传入4个值，期望值，更新值，期望版本号，更新版本号
+
             atomicStampedReference.compareAndSet(100, 101, atomicStampedReference.getStamp(), atomicStampedReference.getStamp()+1);
 
             System.out.println(Thread.currentThread().getName() + "\t 第二次版本号" + atomicStampedReference.getStamp());
